@@ -1,0 +1,270 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors:
+% https://github.com/PandaScience/FortySecondsCV/graphs/contributors
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+%\documentclass[]{cover}
+\usepackage{fancyhdr}
+
+% fine tune line spacing
+% \usepackage{setspace}
+% \setstretch{1.1}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{paralist}
+
+%package for hyperlinks
+\usepackage{hyperref}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Ankith Manjunath}
+% job title/career
+\cvjobtitle{}
+
+%% optional information
+% profile picture
+%\cvprofilepic{pics/ankith-manjunath.jpg}
+% logo picture
+%\cvlogopic{pics/logo_txt.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{12 Aug 1991}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Weststraße 87, \newline 42119 Wuppertal, \newline Germany}
+% phone number
+\cvphone{+49-17680772423}
+% personal website
+%\cvsite{https://www.linkedin.com/in/ankithmanjunath/}
+% email address
+\cvmail{ankith@tutanota.com}
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+\cvcustomdata{\faFlag}{Indian}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% social network accounts incl. proper hyperlinks
+	\sidesection{Network Links}
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/shiny/}}
+	% social network accounts incl. proper hyperlinks		
+		\begin{icontable}{2.5em}{1em}
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/ankithmanjunath/}
+				{My LinkedIn link}
+			\social{\faXing}
+				{https://www.xing.com/profile/Ankith_Manjunath/cv}
+				{My Xing link}
+		\end{icontable}			
+}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR Expectations
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% social network accounts incl. proper hyperlinks
+	\sidesection{Key Points}
+		
+		\begin{cvtable}[1.5]
+		\vspace{8pt}		
+		\cvitem{Job}{Autonomous Driving platform development (all genders)}{}
+			{}
+			
+		\vspace{8pt}		
+		\cvitem{Ref Num}{P0142V196}{}{}
+		
+		\vspace{8pt}
+		\cvitem{Salary Expectation}{72,000€}{Negotiable}{}
+		
+		\vspace{8pt}
+		\cvitem{Start Date}{01.02.2021}{Negotiable}{}
+		
+		\vspace{8pt}
+		\cvitem{Prefe-\\rred Location}{Flexible}{}{}
+		 
+		\end{cvtable}		
+}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%     MAIN COVER LETTER CONTENT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hfill
+
+\begin{minipage}[t]{0.5\textwidth} 
+\companyname{MBition GmbH}
+\companyaddress{
+Dovestraße 1 \\
+10587 Berlin 
+}
+
+\end{minipage}
+\begin{minipage}[t]{0.49\textwidth} 
+\currentdate{\today}
+\end{minipage}
+
+\lettercontent{Dear MBition HR Department,}
+
+% The first paragraph of your job application letter should include information on why you are writing. Mention the job you are applying for and where you found the position. If you have a contact at the company, mention the person's name and your connection here.
+
+\lettercontent{My name is Ankith Manjunath. I am a keen software engineer who invests
+efforts \& time to get things implemented in an ethical and quality-oriented
+way. I have nearly 3 years of experience in the autonomous driving
+\\sector. As the applications of autonomous driving are plenty, I
+am looking for challenging environments where I can develop my
+technical and soft skills}
+
+
+   
+% The next section of your cover letter should describe what you have to offer the company. Make strong connections between your abilities and the requirements listed in the job posting. Mention specifically how your skills and experience match the job. Expand on the information in your resume.
+% Try to support each statement you make with a piece of evidence. Use several shorter paragraphs or bullets rather than one large block of text, which can be difficult to read and absorb quickly.
+%For example 
+
+% Using the knowledge and skills I have acquired in my <DEGREE PROGRAM> combined with my technical abilities I believe I can provide significant value to <COMPANY> while providing me invaluable experience to <PREPARE FOR OR FURTHER CAREER>.
+% <RELEVANT LIFE STORY/ WORK/ PROJECT >
+% In own projects, my coursework, work as a <PREVIOUS JOB TITLE> I have applied knowledge of <SUBJECT MATTER>.
+% <LIST OF SMART SOUNDING SKILLS AND TOOLS>.
+% Combining these tools with my interests in <FIELD> issues, I hope to help the <DEPARTMENT> answer questions about the <SUBJECT> behind <FIELD> projects.
+
+\lettercontent{The previous 2 projects on autonomous driving with car OEM’S exposed
+me to various aspects of software development. The projects helped me
+gain Autosar, ASPICE \& and various technical, aspects which are
+\\necessary to develop an AD functionality. I am a core believer of \\high-quality
+software which I learnt from my experiences. The quality-oriented approach helped my team to tailor the process and tools to \\deliver reliable software until the stages of vehicle testing.}
+
+\lettercontent{I believe my experience would help in MBition pursuit for autonomous
+driving. I am keen on gaining experience of autonomous driving in higher levels of automation (SAE Level 3+). My current experience starting from customer requirement analysis to design, testing and validating using C++ \& ROS in the vehicle would be beneficial
+in this regard. Please refer to my resume for more details.}
+
+% Conclude your application letter by thanking the employer for considering you for the position. 
+
+\lettercontent{Thank you for considering my application to the position of
+Autonomous Driving platform development (all genders). I would be interested in \\discussing the plans of MBition and my areas of contribution. Looking forward to hearing from you. I would be available in the mentioned \href{ankith@tutanota.com}{email address} if any questions come up.
+}
+\vspace{0.5cm}
+
+\closing{Sincerely,\\ \vspace{.1cm}  \vspace{-1cm} }
+
+\signature{Ankith Manjunath}
+
+\end{document}
+
+
+
+\end{document}

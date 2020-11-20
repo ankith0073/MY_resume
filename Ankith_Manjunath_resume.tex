@@ -1,0 +1,375 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors:
+% https://github.com/PandaScience/FortySecondsCV/graphs/contributors
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% 9pt,
+	% sidesectionsize=Large,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sidetextcolor=green,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+	% logowidth=4.5cm,
+	% logospace=5mm,
+	% logoposition=before,
+	% sidebarplacement=right,
+]{fortysecondscv}
+
+% fine tune line spacing
+% \usepackage{setspace}
+% \setstretch{1.1}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+\usepackage{paralist}
+
+%package for hyperlinks
+\usepackage{hyperref}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+	% \newfontfamily\headingfont[Path=fonts/]{segoeuib.ttf} % use local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
+% use a sans serif font as default
+\usepackage[sfdefault]{ClearSans}
+% \usepackage[sfdefault]{noto}
+
+% multi-language CV XeLaTeX and polyglossia (should also work with LuaLaTeX)
+% NOTE: breaks \pointskill, \membership and some spacings
+% \ifxetexorluatex
+% 	\usepackage{polyglossia}
+% 	\newfontfamily\arabicfontsf[Script=Arabic,Scale=1.5]{Amiri}
+% 	\newfontfamily\englishfontsf{Clear Sans}
+% 	\setmainfont{Amiri}
+% 	\setdefaultlanguage{arabic}
+% 	\setotherlanguage{english}
+% \fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Ankith Manjunath}
+% job title/career
+\cvjobtitle{}
+
+%% optional information
+% profile picture
+\cvprofilepic{pics/ankith-manjunath.jpg}
+% logo picture
+%\cvlogopic{pics/logo_txt.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{12 Aug 1991}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Weststraße 87, \newline 42119 Wuppertal, \newline Germany}
+% phone number
+\cvphone{+49-17680772423}
+% personal website
+%\cvsite{https://www.linkedin.com/in/ankithmanjunath/}
+% email address
+\cvmail{ankith@tutanota.com}
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+\cvcustomdata{\faFlag}{Indian}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/shiny/}}
+
+	% social network accounts incl. proper hyperlinks
+	\sidesection{Network Links}
+		\begin{icontable}{2.5em}{1em}
+			\social{\faLinkedin}
+				{https://www.linkedin.com/in/ankithmanjunath/}
+				{My LinkedIn link}
+			\social{\faXing}
+				{https://www.xing.com/profile/Ankith_Manjunath/cv}
+				{My Xing link}
+		\end{icontable}
+
+	\sidesection{Languages}	
+	\pointskill{\flag{GB.png}}{English}{4}	
+	\pointskill{\flag{DE.png}}{German}{3}	
+	\pointskill{\flag{IN.png}}{Hindi}{3}
+
+	\sidesection{Core Skills}
+		\pointskill{}{C++}{4}[5]		
+		\pointskill{}{GoogleTest}{4}[5]
+		\pointskill{}{Test Driven Development}{3}[5]
+		\pointskill{}{ROS}{3}[5]		
+		\pointskill{}{Git/ Gerrit}{3}[5]		
+		\pointskill{}{Black Box Testing}{3}[5]					
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+%	\sidesection{About Me}
+%	\aboutme{
+%		The giant panda is a terrestrial animal and primarily spends its life
+%		roaming and feeding in the bamboo forests of the Qinling Mountains and in
+%		the hilly province of Sichuan.
+%	}
+%
+%	\sidesection{Diagrams}
+%	\begin{sidebarminipage}
+%		\chartlabel{Bubble}
+%		\chartlabel{Diagrams}
+%		\chartlabel{with}
+%		\chartlabel{proper}
+%		\chartlabel{overflow}
+%		\chartlabel{protection}
+%		\chartlabel{for}
+%		\chartlabel{labels}
+%	\end{sidebarminipage}
+%
+%	\begin{figure}\centering
+%		\smartdiagram[bubble diagram]{
+%			\textcolor{white}{\textbf{Being a}} \\
+%			\textcolor{white}{\textbf{Panda}}, % center bubble
+%			\textcolor{black!90}{Eating},
+%			\textcolor{black!90}{Sleeping},
+%			\textcolor{black!90}{Rolling},
+%			\textcolor{black!90}{Playing},
+%			\textcolor{black!90}{Chilling}
+%		}
+%	\end{figure}
+%
+%	\chartlabel{Wheel Chart}
+%
+%	\wheelchart{3.7em}{2em}{%
+%	20/3em/maincolor!50/Chill,
+%	15/3em/maincolor!15/Play,
+%	30/4em/maincolor!40/Sleep,
+%	20/3em/maincolor!20/Eat
+%	}
+%
+%	\sidesection{Barskills}
+%	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+%	\barskill{\faImage}{Playing Chess}{30}
+%	\barskill{\faMusic}{Playing the bamboo flute}{50}
+%
+%	\sidesection{Memberships}
+%	\begin{memberships}
+%		\membership[4em]{pics/logo.png}{PandaScience.net}
+%		\membership[4em]{pics/logo.png}{Some longer text spanning over more than
+%			only one line}
+%	\end{memberships}
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Objective}
+A passionate software engineer with 3 years of work experience
+delivering high quality, maintainable software using the state of the art
+tools \& processes in the area of advanced driver assistance systems and autonomous driving (ADAS/AD). I am looking
+for opportunities in the area of autonomous driving to expand and improve my skills and benefit the organization.
+
+\cvsection{Work Experience}
+\begin{cvtable}[3]
+% Aptiv work experience
+	\cvitem{01/2019 - Present}{Aptiv Services Deutschland GmbH}{Wuppertal, Germany}
+{Software Engineer Algorithms for L3 Autonomous Driving.
+	\begin{compactitem}
+	\item Software product development for situation assessment \\algorithms using agile development methodologies.
+	\item Test-driven development of software using googletest and autosar modern C++.
+	\item Maintain quality using static analysis tools.
+	\item Black box testing using Carmaker simulation tool.
+	\item Prototype testing of applications on a vehicle using ROS \\framework.
+	\item Continuous process optimizations to shorten software delivery times.
+	\item Vehicle testing and validation of applications.
+	\end{compactitem}
+}
+
+%AVL full-time work experience 
+	\cvitem{11/2017 - 12/2018}{AVL Softwares and Functions GmbH}{Regensburg, Germany}{
+		Entwicklungsingenieur
+		\begin{compactitem}
+		\item Algorithm development for prototype applications.
+		\item Radar-based tracking algorithms using Matlab model-based development tools.
+		\item Vehicle testing and validation of applications.
+		\end{compactitem}
+		}
+		
+%AVL internship& master thesis work experince
+	\cvitem{08/2016 - 08/2017}{AVL Softwares and Functions GmbH}{Regensburg, Germany}
+	{Master Thesis \& Praktikum
+	\begin{compactitem}
+	\item Research on Radar based object detection and tracking for autonomous driving.
+	%\item Concept development using Matlab.
+	\item Validation using Prescan simulation environment.
+	\end{compactitem}
+	}
+
+
+%Fraunhofer IIS Work student experience
+	\cvitem{05/2015 - 11/2015}{Fraunhofer IIS}{Erlangen, Germany}
+	{Werkstudent
+	\begin{compactitem}
+	\item Audio conformance tool development using Matlab \& C.
+	\end{compactitem}
+	}
+	
+%Working Student experience FAU Erlangen
+%	\cvitem{08/2015 - 07/2016}{FAU Erlangen-Nürnberg Universität}{Erlangen, Germany}
+%	{Werkstudent
+%	\begin{compactitem}
+%	\item Marker detection for robot localization using \\webcam(OpenCV).
+%	\end{compactitem}
+%	}
+\end{cvtable}
+
+
+\cvsection{Education}
+
+\begin{cvtable}[1.5]
+%MSC in CME
+	\cvitem{10/2014 - 08/2017}{University of Erlangen-Nürnberg}{Erlangen, Germany}
+		{Master of Science (M.Sc) in Communications and Multimedia \\Engineering.}
+		
+%BE in E&C
+	\cvitem{08/2009 - 05/2013}{BNM Institute of Technology}{Bangalore, India}
+		{Bachelor of Engineering (B.E) In Electronics \& Communication}
+\end{cvtable}
+
+\cvsection{Trainings}
+
+\begin{cvtable}[1.5]
+%Accelerated Computer science fundamentals
+	\cvitem{08/2020 - 11/2020}{\href{https://coursera.org/share/de0bf2fef3057e22dcd504081357288c}{Accelerated Computer Science Fundamentals}}{Coursera}
+		{Online course focusing on data structures using modern C++ }
+		
+%Udacity Self driving car nanodegree
+	\cvitem{01/2018 - 07/2018}{\href{https://confirm.udacity.com/PCZZZ76A}{Self Driving Car Engineer Nanodegree}}{Udacity}
+		{Online course focusing on perception, fusion and path planning aspects of self driving car}
+\end{cvtable}
+
+\cvsection{Publications}
+\begin{cvtable}
+	\cvpubitem{\href{https://ieeexplore.ieee.org/document/8443497}{Radar Based Object Detection and Tracking for Autonomous \\Driving}}{International Conference on Microwaves for Intelligent Mobility}
+		{IEEE}{2018}
+\end{cvtable}
+
+
+\newpage
+\makebacksidebar
+\cvsection{Skills \& Competancies}
+\begin{cvtable}
+	\vspace{5pt}
+	\cvitemshort{Software Development}{Agile, APICE Compliance, Autosar, Enterprise Architect, \\Polarion, JIRA, Confluence}
+	\vspace{8pt}
+	\cvitemshort{Programming Languages}{C++-11/14, Matlab, Python}
+	\vspace{5pt}
+	\cvitemshort{CVS}{Git, Gerrit, Github}
+	\vspace{5pt}
+	\cvitemshort{Static Analysis}{Coverity}
+	\vspace{5pt}
+	\cvitemshort{Simulation}{CarMaker, PreScan}
+	\vspace{5pt}
+	\cvitemshort{Frameworks}{ROS, GoogleTest}
+\end{cvtable}
+
+\cvsection{Extra-Curricular Activities}
+\begin{compactitem}
+\item Hiking
+\item Home Automation
+\item Cooking
+\item Badminton
+\item Gaming
+\end{compactitem}
+
+
+
+%\makebacksidebar
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+\cvsignature
+
+\end{document}
